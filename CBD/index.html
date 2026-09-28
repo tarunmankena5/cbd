@@ -1,0 +1,3523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>TINGARI.EXE 💿💗</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=DM+Sans:wght@400;500;600;700;800&family=Ms+Madi&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   Y2K DESIGN SYSTEM
+========================================================= */
+
+:root{
+  --pink:#ff1493;
+  --hot:#ff0080;
+  --bubble:#ff69b4;
+  --baby:#bff8ff;
+  --cyan:#00e5ff;
+  --purple:#9b5cff;
+  --lime:#d8ff3e;
+  --white:#fff;
+  --silver:#e9e9f2;
+  --chrome:#cfd1dc;
+  --dark:#210018;
+  --black:#090008;
+
+  --display:"Bowlby One SC",sans-serif;
+  --tech:"Unbounded",sans-serif;
+  --body:"DM Sans",sans-serif;
+  --script:"Ms Madi",cursive;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at 20% 20%,#ff149344,transparent 25%),
+    radial-gradient(circle at 80% 60%,#00e5ff22,transparent 25%),
+    #090008;
+  color:var(--dark);
+  font-family:var(--body);
+  overflow-x:hidden;
+}
+
+button{
+  font:inherit;
+  border:0;
+  cursor:pointer;
+}
+
+img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+::selection{
+  background:var(--pink);
+  color:white;
+}
+
+/* =========================================================
+   LANDING / GIFT REVEAL
+========================================================= */
+
+body.landing-locked{
+  overflow:hidden;
+}
+
+.landing-screen{
+  position:fixed;
+  inset:0;
+  z-index:20000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:
+    radial-gradient(circle at 20% 15%,#ff69b455,transparent 25%),
+    radial-gradient(circle at 80% 75%,#00e5ff33,transparent 24%),
+    radial-gradient(circle at 50% 45%,#9b5cff33,transparent 35%),
+    #10000f;
+  overflow:hidden;
+  transition:opacity .8s ease,visibility .8s ease;
+}
+
+.landing-screen.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.landing-screen::before,
+.landing-screen::after{
+  content:"";
+  position:absolute;
+  border:1px solid #ffffff44;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.landing-screen::before{
+  width:360px;
+  height:360px;
+  box-shadow:0 0 80px #ff149344,inset 0 0 80px #ff149322;
+}
+
+.landing-screen::after{
+  width:520px;
+  height:520px;
+  box-shadow:0 0 100px #9b5cff22;
+}
+
+.landing-glitter{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.landing-star{
+  position:absolute;
+  color:white;
+  text-shadow:0 0 8px white,0 0 18px var(--pink);
+  animation:landingTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes landingTwinkle{
+  0%,100%{opacity:.25;transform:scale(.7) rotate(0)}
+  50%{opacity:1;transform:scale(1.25) rotate(18deg)}
+}
+
+.landing-card{
+  width:min(100%,430px);
+  text-align:center;
+  position:relative;
+  z-index:2;
+  color:white;
+}
+
+.landing-kicker{
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid #ffffff88;
+  background:#ffffff12;
+  backdrop-filter:blur(10px);
+  font-family:var(--tech);
+  font-size:8px;
+  letter-spacing:2px;
+  box-shadow:4px 4px 0 #ff1493;
+  margin-bottom:18px;
+}
+
+.landing-title{
+  font-family:var(--display);
+  font-size:clamp(38px,11vw,62px);
+  line-height:.9;
+  letter-spacing:1px;
+  color:#fff;
+  text-shadow:
+    3px 3px 0 var(--pink),
+    6px 6px 0 #7b238e,
+    0 0 25px #ff149388;
+}
+
+.landing-name{
+  display:block;
+  margin-top:12px;
+  font-family:var(--script);
+  font-size:clamp(48px,14vw,76px);
+  color:#ff9bd3;
+  text-shadow:0 0 16px #ff1493aa;
+}
+
+.landing-sub{
+  margin:12px auto 0;
+  max-width:320px;
+  font-family:var(--tech);
+  font-size:8px;
+  line-height:1.8;
+  letter-spacing:1px;
+  color:#ffdff1;
+}
+
+.gift-wrap{
+  position:relative;
+  width:210px;
+  height:190px;
+  margin:42px auto 18px;
+  cursor:pointer;
+  filter:drop-shadow(0 18px 20px #00000066);
+  animation:giftFloat 2.8s ease-in-out infinite;
+}
+
+.gift-wrap.opening{
+  animation:giftShake .55s ease-in-out 2;
+}
+
+@keyframes giftFloat{
+  0%,100%{transform:translateY(0) rotate(-1deg)}
+  50%{transform:translateY(-10px) rotate(1deg)}
+}
+
+@keyframes giftShake{
+  0%,100%{transform:translateX(0) rotate(0)}
+  20%{transform:translateX(-10px) rotate(-4deg)}
+  40%{transform:translateX(10px) rotate(4deg)}
+  60%{transform:translateX(-8px) rotate(-3deg)}
+  80%{transform:translateX(8px) rotate(3deg)}
+}
+
+.gift-box{
+  position:absolute;
+  left:25px;
+  right:25px;
+  bottom:15px;
+  height:105px;
+  border-radius:8px;
+  background:linear-gradient(135deg,#ff69b4,#ff1493 55%,#b5006e);
+  border:3px solid white;
+  box-shadow:inset 12px 0 0 #ffffff20,inset -12px 0 0 #00000016;
+}
+
+.gift-box::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:26px;
+  height:100%;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg,#fff0,#fff9,#fff0);
+}
+
+.gift-lid{
+  position:absolute;
+  left:15px;
+  right:15px;
+  bottom:110px;
+  height:35px;
+  border-radius:7px;
+  background:linear-gradient(135deg,#ff8ac8,#ff1493 60%,#c00075);
+  border:3px solid white;
+  z-index:3;
+  transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .5s;
+}
+
+.gift-lid::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-21px;
+  width:25px;
+  height:58px;
+  transform:translateX(-50%);
+  border-radius:7px;
+  background:#fff;
+  box-shadow:0 0 0 3px #ff1493;
+}
+
+.gift-ribbon-left,
+.gift-ribbon-right{
+  position:absolute;
+  width:48px;
+  height:35px;
+  top:-34px;
+  border:4px solid white;
+  background:#ff1493;
+  border-radius:50% 50% 10% 50%;
+  z-index:5;
+}
+
+.gift-ribbon-left{left:calc(50% - 45px);transform:rotate(-28deg)}
+.gift-ribbon-right{right:calc(50% - 45px);transform:scaleX(-1) rotate(-28deg)}
+
+.gift-wrap.opened .gift-lid{
+  transform:translateY(-85px) rotate(-8deg);
+  opacity:0;
+}
+
+.gift-sparkles{
+  position:absolute;
+  inset:-50px;
+  pointer-events:none;
+  opacity:0;
+}
+
+.gift-wrap.opened .gift-sparkles{opacity:1}
+
+.gift-sparkles span{
+  position:absolute;
+  color:#fff;
+  font-size:22px;
+  text-shadow:0 0 10px #fff,0 0 20px var(--pink);
+  animation:burst 1.1s ease-out forwards;
+}
+
+.gift-sparkles span:nth-child(1){left:12%;top:35%;--x:-75px;--y:-80px}
+.gift-sparkles span:nth-child(2){left:50%;top:20%;--x:0;--y:-105px}
+.gift-sparkles span:nth-child(3){right:10%;top:38%;--x:80px;--y:-70px}
+.gift-sparkles span:nth-child(4){left:28%;top:45%;--x:-90px;--y:10px}
+.gift-sparkles span:nth-child(5){right:28%;top:45%;--x:90px;--y:10px}
+.gift-sparkles span:nth-child(6){left:50%;top:45%;--x:0;--y:70px}
+
+@keyframes burst{
+  0%{transform:translate(0,0) scale(.2);opacity:0}
+  20%{opacity:1}
+  100%{transform:translate(var(--x),var(--y)) scale(1.5) rotate(180deg);opacity:0}
+}
+
+.gift-prompt{
+  display:inline-block;
+  margin-top:2px;
+  padding:10px 15px;
+  background:white;
+  color:var(--pink);
+  border:2px solid var(--pink);
+  box-shadow:5px 5px 0 #7b238e;
+  font-family:var(--tech);
+  font-size:9px;
+  letter-spacing:1px;
+  animation:promptPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes promptPulse{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+
+.landing-arrow{
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%) rotate(8deg);
+  font-family:var(--script);
+  font-size:28px;
+  color:#fff;
+  text-shadow:2px 2px 0 var(--pink);
+  white-space:nowrap;
+}
+
+.landing-warning{
+  margin:22px auto 0;
+  max-width:330px;
+  font-size:10px;
+  line-height:1.6;
+  color:#ffcfe8;
+}
+
+.landing-warning strong{color:#fff}
+
+.landing-screen.revealing .landing-card{
+  animation:landingZoom .8s ease forwards;
+}
+
+@keyframes landingZoom{
+  to{transform:scale(1.12);opacity:0}
+}
+
+@media(max-height:760px){
+  .landing-screen{
+    align-items:flex-start;
+    padding-top:18px;
+    padding-bottom:18px;
+    overflow-y:auto;
+  }
+
+  .landing-kicker{
+    margin-bottom:12px;
+    padding:7px 12px;
+  }
+
+  .landing-title{
+    font-size:clamp(34px,10vw,52px);
+  }
+
+  .landing-name{
+    margin-top:8px;
+    font-size:clamp(42px,13vw,64px);
+  }
+
+  .landing-sub{
+    margin-top:8px;
+  }
+
+  .gift-wrap{
+    margin-top:30px;
+    margin-bottom:12px;
+    transform:scale(.9);
+  }
+
+  .landing-warning{
+    margin-top:16px;
+  }
+}
+
+@media(max-width:380px){
+  .landing-arrow{right:-5px;font-size:23px}
+  .gift-wrap{transform:scale(.9)}
+}
+
+/* =========================================================
+   MAIN PHONE
+========================================================= */
+
+.site{
+  width:100%;
+  max-width:430px;
+  margin:auto;
+  min-height:100vh;
+  overflow:hidden;
+  position:relative;
+
+  background:
+    radial-gradient(circle at 10% 8%,#ffffff 0 1px,transparent 2px),
+    radial-gradient(circle at 85% 30%,#ffffff 0 1px,transparent 2px),
+    linear-gradient(
+      135deg,
+      #fff0fa 0%,
+      #ffd4eb 35%,
+      #e9d7ff 65%,
+      #d0faff 100%
+    );
+
+  background-size:170px 170px,230px 230px,100% 100%;
+}
+
+/* =========================================================
+   GLITTER
+========================================================= */
+
+.glitter{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:100;
+}
+
+.star{
+  position:absolute;
+  color:white;
+  text-shadow:
+    0 0 5px white,
+    0 0 12px var(--pink);
+  animation:twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+  0%,100%{opacity:.2;transform:scale(.7) rotate(0)}
+  50%{opacity:1;transform:scale(1.3) rotate(20deg)}
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+  position:fixed;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:430px;
+  padding:0 12px;
+  display:flex;
+  justify-content:space-between;
+  z-index:900;
+  pointer-events:none;
+}
+
+.logo{
+  pointer-events:auto;
+  padding:8px 13px;
+  border-radius:6px;
+  background:
+    linear-gradient(#fff,#ddd);
+  border:2px solid white;
+  box-shadow:
+    2px 2px 0 var(--pink),
+    5px 5px 0 #70003e;
+  font-family:var(--tech);
+  font-size:9px;
+  font-weight:800;
+  color:var(--pink);
+}
+
+.music{
+  pointer-events:auto;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  color:white;
+  background:
+    linear-gradient(135deg,#ff7bc5,#ff0080 50%,#8d0060);
+  border:2px solid white;
+  box-shadow:
+    0 0 0 2px var(--pink),
+    0 5px 20px #ff008066;
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+  padding:45px 18px;
+  position:relative;
+  z-index:5;
+}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.section-heading .mini{
+  font-family:var(--tech);
+  font-size:8px;
+  letter-spacing:2px;
+  color:var(--purple);
+}
+
+.section-heading h2{
+  font-family:var(--display);
+  font-size:25px;
+  line-height:1.05;
+  color:var(--pink);
+  text-shadow:2px 2px white;
+  margin-top:6px;
+}
+
+.section-heading p{
+  font-family:var(--script);
+  font-size:27px;
+  color:#8c1980;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  min-height:100vh;
+  padding:120px 18px 50px;
+  text-align:center;
+  position:relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  background:#ff149344;
+  filter:blur(60px);
+  top:100px;
+  left:-80px;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:160px;
+  height:160px;
+  background:#00e5ff33;
+  filter:blur(60px);
+  right:-70px;
+  bottom:100px;
+}
+
+.y2k-label{
+  display:inline-block;
+  padding:7px 12px;
+  color:white;
+  background:var(--pink);
+  border:2px solid white;
+  box-shadow:
+    3px 3px 0 var(--purple),
+    0 0 20px #ff149366;
+  font-family:var(--tech);
+  font-size:8px;
+  transform:rotate(-2deg);
+}
+
+.hero h1{
+  font-family:var(--display);
+  color:var(--pink);
+  font-size:52px;
+  line-height:.88;
+  margin-top:25px;
+  text-shadow:
+    3px 3px white,
+    6px 6px 0 #8c1670;
+}
+
+.hero-name{
+  font-family:var(--script);
+  font-size:76px;
+  color:#7b238e;
+  margin-top:5px;
+  display:block;
+  transform:rotate(-4deg);
+  text-shadow:2px 2px white;
+}
+
+.hero-sub{
+  font-family:var(--tech);
+  font-size:8px;
+  line-height:1.8;
+  max-width:300px;
+  margin:20px auto;
+}
+
+/* =========================================================
+   DIGITAL CAMERA PHOTO
+========================================================= */
+
+.camera-frame{
+  background:#161616;
+  padding:10px;
+  border:3px solid #aaa;
+  border-radius:5px;
+  box-shadow:
+    7px 7px 0 var(--pink),
+    0 20px 40px #51002f44;
+  transform:rotate(2deg);
+}
+
+.camera-screen{
+  height:290px;
+  position:relative;
+  overflow:hidden;
+  border:2px solid #555;
+}
+
+.camera-screen img{
+  filter:saturate(1.15) contrast(1.05);
+}
+
+.camera-ui{
+  position:absolute;
+  inset:0;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  color:white;
+  font-family:monospace;
+  font-size:9px;
+  text-shadow:1px 1px #000;
+}
+
+.rec{
+  color:red;
+}
+
+.camera-bottom{
+  color:white;
+  font-family:monospace;
+  font-size:9px;
+  text-align:left;
+  padding-top:8px;
+}
+
+/* =========================================================
+   STICKER
+========================================================= */
+
+.sticker{
+  position:absolute;
+  background:var(--lime);
+  color:#40002d;
+  padding:8px 11px;
+  border:2px solid white;
+  box-shadow:3px 3px 0 #730052;
+  font-family:var(--tech);
+  font-size:7px;
+  z-index:20;
+}
+
+.sticker.one{
+  right:8px;
+  top:400px;
+  transform:rotate(8deg);
+}
+
+.sticker.two{
+  left:3px;
+  bottom:130px;
+  background:var(--cyan);
+  transform:rotate(-8deg);
+}
+
+/* =========================================================
+   WINDOWS
+========================================================= */
+
+.window{
+  background:#f7f7ff;
+  border:2px solid #555;
+  box-shadow:
+    5px 5px 0 #6e0048,
+    0 15px 30px #ff008033;
+}
+
+.window-bar{
+  background:
+    linear-gradient(90deg,#ff1493,#9b5cff);
+  color:white;
+  padding:7px 9px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:var(--tech);
+  font-size:7px;
+}
+
+.window-buttons{
+  display:flex;
+  gap:3px;
+}
+
+.window-buttons span{
+  width:12px;
+  height:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:white;
+  color:var(--pink);
+  border:1px solid #777;
+  font-size:8px;
+}
+
+.window-content{
+  padding:18px;
+}
+
+/* =========================================================
+   CINEMATIC POSTER
+========================================================= */
+
+.poster{
+  width:100%;
+  aspect-ratio:1080 / 1350;
+  min-height:0;
+  border:3px solid white;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(255,20,147,.12) 0%,rgba(255,20,147,.20) 28%,rgba(33,0,24,.52) 62%,rgba(33,0,24,.92) 100%),
+    url("images/sspp.jpg") center/cover no-repeat;
+  box-shadow:
+    8px 8px 0 var(--pink),
+    0 20px 40px #3e003055;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:24px;
+  color:white;
+}
+
+.poster-top{
+  position:relative;
+  z-index:2;
+  font-family:"Unbounded",sans-serif;
+  font-size:clamp(8px,1.2vw,12px);
+  letter-spacing:2px;
+  text-shadow:1px 1px 0 #18000e;
+}
+
+.poster-title{
+  position:relative;
+  z-index:2;
+  font-family:"Bowlby One SC",sans-serif;
+  font-size:clamp(42px,7vw,76px);
+  line-height:.9;
+  letter-spacing:-1px;
+  color:white;
+  text-shadow:
+    4px 4px #ff1493,
+    7px 7px #18000e;
+}
+
+.poster-script{
+  position:relative;
+  z-index:2;
+  font-family:"Ms Madi",cursive;
+  font-size:clamp(42px,7vw,72px);
+  line-height:1;
+  color:white;
+  text-shadow:2px 2px 0 #ff1493;
+}
+
+.poster-bottom{
+  position:relative;
+  z-index:2;
+  font-family:"Unbounded",sans-serif;
+  font-size:clamp(7px,1.05vw,10px);
+  line-height:2;
+  letter-spacing:.7px;
+  color:white;
+  text-shadow:1px 1px 0 #18000e;
+}
+
+@media(max-width:599px){
+  .poster{
+    padding:18px;
+  }
+
+  .poster-title{
+    font-size:clamp(38px,12vw,58px);
+  }
+
+  .poster-script{
+    font-size:clamp(38px,11vw,54px);
+  }
+}
+
+/* =========================================================
+   CONFESSIONS
+========================================================= */
+
+.confession{
+  margin-bottom:12px;
+  cursor:pointer;
+}
+
+.confession-head{
+  padding:13px;
+  background:
+    linear-gradient(135deg,#fff,#ffd6eb);
+  border:2px solid white;
+  box-shadow:3px 3px 0 var(--pink);
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--tech);
+  color:var(--pink);
+  font-size:8px;
+}
+
+.confession-body{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:.45s ease;
+  background:white;
+  border-left:2px solid var(--pink);
+  border-right:2px solid var(--pink);
+  border-bottom:2px solid var(--pink);
+  padding:0 14px;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.confession.open .confession-body{
+  max-height:180px;
+  opacity:1;
+  padding:14px;
+}
+
+/* =========================================================
+   CD PLAYER
+========================================================= */
+
+.cd-player{
+  background:
+    linear-gradient(145deg,#ffffff,#d9d9e7);
+  border:3px solid white;
+  padding:16px;
+  box-shadow:
+    6px 6px 0 var(--purple),
+    0 20px 30px #63004b33;
+}
+
+.cd{
+  width:190px;
+  height:190px;
+  margin:auto;
+  border-radius:50%;
+  background:
+    radial-gradient(circle,#ff1493 0 10%,#fff 11% 13%,transparent 14%),
+    repeating-conic-gradient(
+      #eee 0deg 12deg,
+      #bbb 13deg 18deg
+    );
+  border:5px solid #aaa;
+  box-shadow:
+    inset 0 0 30px #fff,
+    0 8px 20px #0003;
+  transition:transform .8s linear;
+}
+
+.cd.spin{
+  animation:spin 2s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.track{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px dotted #888;
+  font-family:var(--tech);
+  font-size:8px;
+}
+
+.play{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:var(--pink);
+  color:white;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stat{
+  margin-bottom:17px;
+}
+
+.stat-title{
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--tech);
+  font-size:7px;
+  margin-bottom:6px;
+}
+
+.stat-bar{
+  height:14px;
+  background:white;
+  border:2px solid #999;
+  padding:2px;
+}
+
+.stat-fill{
+  width:0;
+  height:100%;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      var(--pink),
+      var(--pink) 6px,
+      #ff8dcc 6px,
+      #ff8dcc 12px
+    );
+  transition:1.5s;
+}
+
+/* =========================================================
+   CLASSIFIED
+========================================================= */
+
+.classified{
+  background:#171717;
+  color:#eee;
+  padding:20px;
+  border:2px solid #777;
+  box-shadow:
+    6px 6px 0 var(--pink);
+}
+
+.classified-title{
+  color:#ff477f;
+  font-family:var(--tech);
+  font-size:9px;
+  margin-bottom:18px;
+}
+
+.file{
+  padding:9px 0;
+  border-bottom:1px dashed #555;
+  font-family:monospace;
+  font-size:11px;
+}
+
+.unlock{
+  margin-top:18px;
+  width:100%;
+  padding:12px;
+  background:var(--pink);
+  color:white;
+  font-family:var(--tech);
+  font-size:8px;
+}
+
+.secret{
+  display:none;
+  margin-top:15px;
+  padding:15px;
+  background:#31001e;
+  color:#ffb3d7;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.classified.unlocked .secret{
+  display:block;
+}
+
+/* =========================================================
+   RANDOM MACHINE
+========================================================= */
+
+.luck-machine{
+  text-align:center;
+  background:
+    linear-gradient(145deg,#ff1493,#7d197d);
+  padding:25px 18px;
+  color:white;
+  border:3px solid white;
+  box-shadow:
+    7px 7px 0 #410026;
+}
+
+.slot{
+  min-height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--display);
+  font-size:24px;
+  text-shadow:2px 2px #6b0050;
+}
+
+.y2k-button{
+  background:linear-gradient(#fff,#ddd);
+  color:var(--pink);
+  border:2px solid white;
+  padding:12px 20px;
+  box-shadow:
+    3px 3px 0 #650047;
+  font-family:var(--tech);
+  font-size:8px;
+}
+
+/* =========================================================
+   OPEN WHEN
+========================================================= */
+
+.openwhen{
+  border:2px solid white;
+  background:#fff8fc;
+  box-shadow:4px 4px 0 var(--purple);
+  margin-bottom:12px;
+}
+
+.openwhen-head{
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--tech);
+  font-size:8px;
+  color:var(--pink);
+  cursor:pointer;
+}
+
+.openwhen-body{
+  max-height:0;
+  overflow:hidden;
+  transition:.5s;
+  opacity:0;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.openwhen.open .openwhen-body{
+  max-height:200px;
+  opacity:1;
+  padding:0 14px 15px;
+}
+
+/* =========================================================
+   CHAT
+========================================================= */
+
+.phone{
+  background:#f3f3f3;
+  border:6px solid #222;
+  border-radius:30px;
+  padding:12px;
+  box-shadow:
+    7px 7px 0 var(--pink);
+}
+
+.phone-top{
+  background:#222;
+  color:white;
+  padding:8px;
+  text-align:center;
+  font-family:var(--tech);
+  font-size:7px;
+}
+
+.chat-screen{
+  padding:15px 8px;
+  background:
+    radial-gradient(#ffb5d8 1px,transparent 1px);
+  background-size:12px 12px;
+}
+
+.msg{
+  max-width:80%;
+  padding:9px 11px;
+  border-radius:14px;
+  margin:8px 0;
+  font-size:12px;
+}
+
+.her{
+  background:white;
+  border-bottom-left-radius:2px;
+}
+
+.me{
+  margin-left:auto;
+  background:#ffb4d5;
+  border-bottom-right-radius:2px;
+}
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+.terms{
+  background:#fff;
+  padding:18px;
+  border:2px solid #999;
+  box-shadow:5px 5px 0 var(--cyan);
+}
+
+.term{
+  padding:11px 0;
+  border-bottom:1px dotted #aaa;
+  font-size:12px;
+}
+
+.accept{
+  width:100%;
+  margin-top:16px;
+  padding:13px;
+  background:var(--pink);
+  color:white;
+  font-family:var(--tech);
+  font-size:8px;
+}
+
+/* =========================================================
+   AWARDS
+========================================================= */
+
+.awards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.award{
+  background:
+    linear-gradient(135deg,#fff,#ffd7eb);
+  border:2px solid white;
+  padding:17px 8px;
+  text-align:center;
+  box-shadow:3px 3px 0 var(--pink);
+}
+
+.award-icon{
+  font-size:31px;
+}
+
+.award-title{
+  font-family:var(--tech);
+  font-size:7px;
+  color:var(--pink);
+  margin-top:8px;
+}
+
+/* =========================================================
+   MUSEUM
+========================================================= */
+
+.museum{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px 14px;
+  align-items:start;
+  padding:4px;
+}
+
+.photo{
+  background:white;
+  padding:8px 8px 16px;
+  box-shadow:5px 5px 0 #810050;
+  min-width:0;
+  position:relative;
+}
+
+.photo:nth-child(odd){
+  transform:rotate(-3deg);
+}
+
+.photo:nth-child(even){
+  transform:rotate(3deg);
+}
+
+.photo-img{
+  aspect-ratio:1;
+  overflow:hidden;
+}
+
+.photo-caption{
+  text-align:center;
+  font-family:var(--script);
+  color:var(--pink);
+  font-size:21px;
+  margin-top:6px;
+}
+
+/* =========================================================
+   BUCKET
+========================================================= */
+
+.bucket{
+  background:white;
+  border:2px solid #aaa;
+  box-shadow:5px 5px 0 var(--cyan);
+}
+
+.bucket-item{
+  padding:15px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px dotted #aaa;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.checkbox{
+  width:22px;
+  height:22px;
+  border:2px solid var(--pink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+
+.bucket-item.done{
+  background:#ffe4f2;
+  color:#777;
+  text-decoration:line-through;
+}
+
+.bucket-item.done .checkbox{
+  background:var(--pink);
+}
+
+/* =========================================================
+   SERIOUS LETTER
+========================================================= */
+
+.letter{
+  background:
+    linear-gradient(#fff,#fff8fc);
+  border:2px solid white;
+  padding:28px 20px;
+  box-shadow:
+    6px 6px 0 var(--pink);
+}
+
+.letter h3{
+  text-align:center;
+  font-family:var(--script);
+  font-size:46px;
+  color:var(--pink);
+  margin-bottom:15px;
+}
+
+.letter p{
+  font-size:14px;
+  line-height:1.85;
+}
+
+/* =========================================================
+   CAKE
+========================================================= */
+
+.cake-box{
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 20%,#fff 1px,transparent 2px),
+    linear-gradient(135deg,#ff1493,#8e288d);
+  background-size:30px 30px,100% 100%;
+  color:white;
+  padding:25px;
+  border:3px solid white;
+  box-shadow:7px 7px 0 #410026;
+}
+
+.cake{
+  font-size:95px;
+  filter:drop-shadow(0 8px 10px #41002666);
+}
+
+.wish{
+  font-family:var(--script);
+  font-size:40px;
+}
+
+.blow{
+  margin-top:15px;
+  background:white;
+  color:var(--pink);
+  padding:13px 20px;
+  font-family:var(--tech);
+  font-size:8px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+  padding:70px 18px 100px;
+  text-align:center;
+}
+
+.footer-main{
+  font-family:var(--display);
+  font-size:25px;
+  color:var(--pink);
+  text-shadow:2px 2px white;
+}
+
+.footer-script{
+  font-family:var(--script);
+  font-size:42px;
+  color:#7b238e;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#16000dcc;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  z-index:5000;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-window{
+  width:100%;
+  max-width:380px;
+  background:white;
+  border:3px solid #777;
+  box-shadow:
+    7px 7px 0 var(--pink);
+}
+
+.modal-body{
+  padding:22px;
+  text-align:center;
+}
+
+.modal-body h3{
+  font-family:var(--display);
+  font-size:24px;
+  color:var(--pink);
+}
+
+.modal-body p{
+  font-size:13px;
+  line-height:1.7;
+  margin:15px 0;
+}
+
+.modal-close{
+  padding:10px 20px;
+  background:var(--pink);
+  color:white;
+  font-family:var(--tech);
+  font-size:8px;
+}
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+#confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:10000;
+}
+
+/* =========================================================
+   DESKTOP FRAME
+========================================================= */
+
+@media(min-width:600px){
+
+  body{
+    padding:20px 0;
+  }
+
+  .site{
+    border:4px solid #ff1493;
+    box-shadow:
+      0 0 0 5px #fff,
+      0 0 70px #ff149366;
+  }
+
+}
+
+
+
+/* =========================================================
+   MUSEUM OF US — SIX PHOTO ALIGNMENT
+========================================================= */
+
+.museum{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  align-items:start;
+}
+
+.photo{
+  min-width:0;
+  background:#fff;
+  padding:8px 8px 14px;
+  border:2px solid #fff;
+  box-shadow:6px 6px 0 #ff149355,0 10px 22px #21001822;
+  transform:rotate(var(--tilt));
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.photo:nth-child(1){--tilt:-2.5deg}
+.photo:nth-child(2){--tilt:2.5deg}
+.photo:nth-child(3){--tilt:1.8deg}
+.photo:nth-child(4){--tilt:-2deg}
+.photo:nth-child(5){--tilt:-1.7deg}
+.photo:nth-child(6){--tilt:2.2deg}
+
+.photo:hover{
+  transform:rotate(0) scale(1.035);
+  z-index:5;
+  box-shadow:8px 8px 0 #ff149377,0 15px 30px #21001833;
+}
+
+.photo-img{
+  width:100%;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  background:#ffd4eb;
+}
+
+.photo-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.photo-caption{
+  padding-top:9px;
+  min-height:25px;
+  text-align:center;
+  font-family:var(--script);
+  font-size:22px;
+  line-height:1;
+  color:var(--pink);
+}
+
+@media(min-width:700px){
+  .museum{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+
+/* =====================================================
+   OUR SOUNDTRACK
+===================================================== */
+
+.soundtrack-section{
+  position:relative;
+}
+
+.music-cards{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.music-card{
+  background:#fff;
+  border:3px solid #ff1493;
+  box-shadow:
+    6px 6px 0 #ff69b4,
+    0 15px 35px rgba(255,20,147,.18);
+  padding:14px;
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.music-card:hover{
+  transform:translateY(-5px) rotate(-.5deg);
+  box-shadow:
+    9px 9px 0 #ff1493,
+    0 20px 40px rgba(255,20,147,.25);
+}
+
+
+/* ALBUM COVER */
+
+.album-cover-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:1 / 1;
+  background:#ffb6d9;
+  overflow:hidden;
+  border:2px solid #16000d;
+}
+
+.album-cover{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+
+.music-card:hover .album-cover{
+  transform:scale(1.04);
+}
+
+
+/* SIDE A / SIDE B */
+
+.vinyl-label{
+  position:absolute;
+  top:12px;
+  right:12px;
+
+  background:#16000d;
+  color:#fff;
+
+  padding:7px 10px;
+
+  font-family:var(--tech);
+  font-size:9px;
+  letter-spacing:2px;
+
+  border:2px solid #fff;
+  box-shadow:3px 3px 0 #ff1493;
+}
+
+
+/* TEXT */
+
+.music-info{
+  padding:18px 8px 8px;
+}
+
+.music-category{
+  font-family:var(--tech);
+  font-size:9px;
+  letter-spacing:1.5px;
+  color:#ff1493;
+  margin-bottom:8px;
+}
+
+.music-info h3{
+  font-family:var(--display);
+  font-size:25px;
+  line-height:1.05;
+  color:#16000d;
+  margin-bottom:4px;
+}
+
+.music-artist{
+  font-family:var(--tech);
+  font-size:10px;
+  letter-spacing:1.5px;
+  color:#777;
+  margin-bottom:14px;
+}
+
+.music-reason{
+  font-size:14px;
+  line-height:1.6;
+  color:#3d001d;
+  margin-bottom:18px;
+}
+
+
+/* LISTEN BUTTON */
+
+.listen-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#ff1493;
+  color:#fff;
+
+  padding:11px 20px;
+
+  text-decoration:none;
+
+  font-family:var(--tech);
+  font-size:10px;
+  letter-spacing:1.5px;
+
+  border:2px solid #16000d;
+  box-shadow:4px 4px 0 #16000d;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.listen-button:hover{
+  transform:translate(2px,2px);
+  box-shadow:2px 2px 0 #16000d;
+}
+
+
+/* DESKTOP */
+
+@media(min-width:600px){
+
+  .music-cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+
+  .music-card{
+    padding:15px;
+  }
+
+}
+
+</style>
+</head>
+
+<body class="landing-locked">
+
+<!-- LANDING SCREEN: the main site stays hidden until the gift is opened -->
+<div class="landing-screen" id="landingScreen">
+  <div class="landing-glitter" id="landingGlitter"></div>
+  <div class="landing-card">
+    <div class="landing-kicker">✦ A VERY IMPORTANT BIRTHDAY FILE ✦</div>
+    <div class="landing-title">HAPPY<br>BIRTHDAY</div>
+    <span class="landing-name">Charitha!</span>
+    <p class="landing-sub">YOUR VERY IMPORTANT BIRTHDAY EXPERIENCE AWAITS...</p>
+
+    <div class="gift-wrap" id="giftWrap" onclick="openBirthdayGift()" role="button" tabindex="0" aria-label="Open your birthday gift">
+      <div class="gift-sparkles" aria-hidden="true">
+        <span>✦</span><span>✧</span><span>★</span><span>♡</span><span>✩</span><span>✦</span>
+      </div>
+      <div class="gift-ribbon-left"></div>
+      <div class="gift-ribbon-right"></div>
+      <div class="gift-lid"></div>
+      <div class="gift-box"></div>
+      <div class="landing-arrow">↘ click me!</div>
+    </div>
+
+    <div class="gift-prompt">🎁 CLICK THE GIFT TO OPEN ✨</div>
+
+    <p class="landing-warning">
+      ⚠️ <strong>WARNING:</strong> This website contains excessive chaos, embarrassing memories, questionable conversations, and an unreasonable amount of affection. 😛
+    </p>
+  </div>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<div class="glitter" id="glitter"></div>
+
+<div class="site">
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="topbar">
+
+  <div class="logo">
+    TINGARI.EXE 💿
+  </div>
+
+  <button class="music" onclick="toggleMusic()" id="musicBtn">
+    ♫
+  </button>
+
+</div>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+  <div class="sticker one">
+    ★ 100% ICONIC
+  </div>
+
+  <div class="sticker two">
+    GIRL OF THE YEAR ✦
+  </div>
+
+  <div class="y2k-label">
+    ✦ OFFICIAL BESTIE PASS ✦
+  </div>
+
+  <h1>
+    HAPPY<br>
+    BIRTHDAY
+  </h1>
+
+  <span class="hero-name">
+    Tingari!
+  </span>
+
+  <p class="hero-sub">
+    LOADING YOUR NEXT YEAR OF CHAOS...<br>
+    ██████████████████ 100%
+  </p>
+
+  <div class="camera-frame">
+
+    <div class="camera-screen">
+
+      <img src="images/tingari.JPG" alt="Tingari">
+
+      <div class="camera-ui">
+
+        <div>
+          <span class="rec">● REC</span>
+          &nbsp; 12:47:03
+        </div>
+
+        <div>
+          LUV.JPG
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="camera-bottom">
+      09/27/2026 &nbsp; • &nbsp; BESTIE CAM
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CINEMATIC UNIVERSE
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      FILE 001 / MOVIE DATABASE
+    </div>
+
+    <h2>
+      THE TINGARI<br>
+      CINEMATIC UNIVERSE
+    </h2>
+
+    <p>
+      a film by her favorite idiot
+    </p>
+
+  </div>
+
+  <div class="poster">
+
+    <div class="poster-top">
+      A 2000s ROM-COM ORIGINAL
+    </div>
+
+    <div>
+
+      <div class="poster-title">
+        TINGARI
+      </div>
+
+      <div class="poster-script">
+        The Main Character
+      </div>
+
+    </div>
+
+    <div class="poster-bottom">
+      STARRING: TINGARI<br>
+      GENRE: COMEDY / CHAOS / FRIENDSHIP<br>
+      RUNTIME: SOMEHOW STILL GOING<br>
+      BASED ON: TRUE EVENTS 😛
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONFESSIONS
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      PRIVATE DATABASE
+    </div>
+
+    <h2>
+      THINGS I'LL NEVER<br>
+      ADMIT IRL
+    </h2>
+
+    <p>
+      since this website can't snitch...
+    </p>
+
+  </div>
+
+
+  <div class="confession" onclick="toggleBox(this)">
+
+    <div class="confession-head">
+      <span>OPEN FILE #01</span>
+      <span>+</span>
+    </div>
+
+    <div class="confession-body">
+      Okay fine. You're actually one of my favorite people. Don't let this information get to your head though. 😛
+    </div>
+
+  </div>
+
+
+  <div class="confession" onclick="toggleBox(this)">
+
+    <div class="confession-head">
+      <span>OPEN FILE #02</span>
+      <span>+</span>
+    </div>
+
+    <div class="confession-body">
+      I pretend to be annoyed by your nonsense, but honestly your chaos is half the entertainment.
+    </div>
+
+  </div>
+
+
+  <div class="confession" onclick="toggleBox(this)">
+
+    <div class="confession-head">
+      <span>OPEN FILE #03</span>
+      <span>+</span>
+    </div>
+
+    <div class="confession-body">
+      I may roast you approximately 97 times a day, but I'll still have your back when it actually matters.
+    </div>
+
+  </div>
+
+
+  <div class="confession" onclick="toggleBox(this)">
+
+    <div class="confession-head">
+      <span>OPEN FILE #04</span>
+      <span>+</span>
+    </div>
+
+    <div class="confession-body">
+      Life genuinely wouldn't be as fun without you in it. There. I said it. Happy now? 😛
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SOUNDTRACK
+===================================================== -->
+
+<!-- =====================================================
+     OUR SOUNDTRACK
+===================================================== -->
+
+<section class="section soundtrack-section">
+
+  <div class="section-heading">
+    <div class="mini">
+      FILE 003 / AUDIO DATABASE
+    </div>
+
+    <h2>
+      OUR<br>
+      SOUNDTRACK 🎧
+    </h2>
+
+    <p>
+      two songs, two very different reasons...
+    </p>
+  </div>
+
+
+  <div class="music-cards">
+
+    <!-- ================= MAIN CHARACTER ================= -->
+
+    <div class="music-card">
+
+      <div class="album-cover-wrap">
+        <img
+          src="images\song-main-character.jpg"
+          alt="Main Character album cover"
+          class="album-cover"
+        >
+
+        <div class="vinyl-label">
+          SIDE A
+        </div>
+      </div>
+
+      <div class="music-info">
+
+        <div class="music-category">
+          ✦ YOUR MAIN CHARACTER SONG
+        </div>
+
+        <h3>
+          Don’t Start Now
+        </h3>
+
+        <p class="music-artist">
+          Dua Lipa
+        </p>
+
+        <p class="music-reason">
+          This just feels like you.
+          Main character energy, obviously. 😛
+        </p>
+
+        <a
+          href="https://open.spotify.com/track/3PfIrDoz19wz7qK7tYeu62?si=a770fab4050e4bb8"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="listen-button"
+        >
+          ▶ LISTEN
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= REMINDS ME OF YOU ================= -->
+
+    <div class="music-card">
+
+      <div class="album-cover-wrap">
+        <img
+          src="images\song-reminds-me.jpg"
+          alt="Song that reminds me of you album cover"
+          class="album-cover"
+        >
+
+        <div class="vinyl-label">
+          SIDE B
+        </div>
+      </div>
+
+      <div class="music-info">
+
+        <div class="music-category">
+          💭 A SONG THAT REMINDS ME OF YOU
+        </div>
+
+        <h3>
+          Lacy
+        </h3>
+
+        <p class="music-artist">
+           Olivia Rodrigo
+        </p>
+
+        <p class="music-reason">
+          Every time I hear this one,
+          somehow I think of you.
+        </p>
+
+        <a
+          href="https://open.spotify.com/track/6QT6j7rKt7Vk3IuV2AUO9W?si=c8eb37e286014cfb"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="listen-button"
+        >
+          ▶ LISTEN
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FRIENDSHIP REPORT
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      LAB REPORT / 2003
+    </div>
+
+    <h2>
+      FRIENDSHIP<br>
+      SCIENTIFIC REPORT
+    </h2>
+
+    <p>
+      peer-reviewed by absolutely nobody
+    </p>
+
+  </div>
+
+  <div class="window">
+
+    <div class="window-bar">
+
+      <span>
+        FRIENDSHIP_ANALYSIS.EXE
+      </span>
+
+      <div class="window-buttons">
+        <span>−</span>
+        <span>□</span>
+        <span>×</span>
+      </div>
+
+    </div>
+
+    <div class="window-content">
+
+      <div class="stat">
+
+        <div class="stat-title">
+          <span>CHAOS & LAUGHS</span>
+          <span>100%</span>
+        </div>
+
+        <div class="stat-bar">
+          <div class="stat-fill" data-width="100%"></div>
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-title">
+          <span>SECRET KEEPING</span>
+          <span>1000%</span>
+        </div>
+
+        <div class="stat-bar">
+          <div class="stat-fill" data-width="100%"></div>
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-title">
+          <span>COMMON SENSE</span>
+          <span>23%</span>
+        </div>
+
+        <div class="stat-bar">
+          <div class="stat-fill" data-width="23%"></div>
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-title">
+          <span>RANDOM CONVERSATIONS</span>
+          <span>∞</span>
+        </div>
+
+        <div class="stat-bar">
+          <div class="stat-fill" data-width="100%"></div>
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-title">
+          <span>ICONIC ENERGY</span>
+          <span>∞∞∞</span>
+        </div>
+
+        <div class="stat-bar">
+          <div class="stat-fill" data-width="100%"></div>
+        </div>
+
+      </div>
+
+      <div style="
+        margin-top:20px;
+        padding:12px;
+        background:#fff0f8;
+        border:1px dashed var(--pink);
+        font-size:11px;
+        line-height:1.6;
+      ">
+        RESULT: SUBJECT IS OFFICIALLY TOO ICONIC FOR NORMAL MEASUREMENT.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CLASSIFIED
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      GOVERNMENT DATABASE / RESTRICTED
+    </div>
+
+    <h2>
+      🔒 TINGARI FILES
+    </h2>
+
+    <p>
+      classified information
+    </p>
+
+  </div>
+
+  <div class="classified" id="classified">
+
+    <div class="classified-title">
+      TOP_SECRET_TINGARI.DAT
+    </div>
+
+    <div class="file">
+      SUBJECT: TINGARI
+    </div>
+
+    <div class="file">
+      THREAT LEVEL: EXTREMELY CHAOTIC
+    </div>
+
+    <div class="file">
+      SPECIAL ABILITY: MAKING EVERYONE LAUGH
+    </div>
+
+    <div class="file">
+      WEAKNESS: [REDACTED]
+    </div>
+
+    <div class="file">
+      KNOWN LOCATION: WHEREVER THE FOOD IS
+    </div>
+
+    <div class="file">
+      STATUS: ICONIC
+    </div>
+
+    <button class="unlock" onclick="unlockFile()">
+      🔓 ACCESS CLASSIFIED FILE
+    </button>
+
+    <div class="secret">
+
+      <b>CONFIDENTIAL:</b><br><br>
+
+      Subject has somehow become one of the most important people in the operator's life.
+
+      <br><br>
+
+      Further investigation unnecessary.
+
+      <br><br>
+
+      Protect friendship at all costs. 💗
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRESS YOUR LUCK
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      RANDOMIZER 2000
+    </div>
+
+    <h2>
+      🎰 PRESS YOUR LUCK
+    </h2>
+
+    <p>
+      what kind of bestie are you today?
+    </p>
+
+  </div>
+
+  <div class="luck-machine">
+
+    <div class="slot" id="slot">
+      INSERT COIN 😛
+    </div>
+
+    <button class="y2k-button" onclick="randomBestie()">
+      ▶ SPIN THE MACHINE
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     OPEN WHEN
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      EMERGENCY BESTIE DATABASE
+    </div>
+
+    <h2>
+      OPEN WHEN...
+    </h2>
+
+    <p>
+      little reminders from me
+    </p>
+
+  </div>
+
+
+  <div class="openwhen" onclick="toggleBox(this)">
+
+    <div class="openwhen-head">
+      <span>🥺 YOU'RE FEELING DOWN</span>
+      <span>+</span>
+    </div>
+
+    <div class="openwhen-body">
+      Remember that you are literally THAT girl. Put on your favorite playlist, get yourself something nice and remember that I'm always in your corner. 💗
+    </div>
+
+  </div>
+
+
+  <div class="openwhen" onclick="toggleBox(this)">
+
+    <div class="openwhen-head">
+      <span>👑 YOU NEED A HYPE MAN</span>
+      <span>+</span>
+    </div>
+
+    <div class="openwhen-body">
+      You're smart, hilarious, capable and completely capable of doing whatever you set your mind to. Now go prove everybody right.
+    </div>
+
+  </div>
+
+
+  <div class="openwhen" onclick="toggleBox(this)">
+
+    <div class="openwhen-head">
+      <span>🍰 YOU HAVE GOOD NEWS</span>
+      <span>+</span>
+    </div>
+
+    <div class="openwhen-body">
+      CALL ME. I want the full story. Every detail. Unnecessary background information included. Celebration food is mandatory.
+    </div>
+
+  </div>
+
+
+  <div class="openwhen" onclick="toggleBox(this)">
+
+    <div class="openwhen-head">
+      <span>😛 YOU'RE ANGRY AT ME</span>
+      <span>+</span>
+    </div>
+
+    <div class="openwhen-body">
+      Okay okay. Before you destroy me, please remember that I'm probably right. Just kidding. I'm sorry. 😭
+    </div>
+
+  </div>
+
+
+  <div class="openwhen" onclick="toggleBox(this)">
+
+    <div class="openwhen-head">
+      <span>🌙 IT'S 2 AM</span>
+      <span>+</span>
+    </div>
+
+    <div class="openwhen-body">
+      If it's important, call. If it's nonsense, also call. We clearly don't have healthy sleeping schedules anyway.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CHAT
+===================================================== -->
+
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      CHAT ARCHIVE / RECOVERED
+    </div>
+
+    <h2>
+      📱 OUR AVERAGE<br>
+      CONVERSATION
+    </h2>
+
+    <p>
+      completely accurate reconstruction
+    </p>
+
+  </div>
+
+  <div class="phone">
+
+    <div class="phone-top">
+      TINGARI 💗 TARUN
+    </div>
+
+    <div class="chat-screen">
+
+      <div class="msg her">
+        Hellllllooooo
+      </div>
+
+      <div class="msg me">
+        Helllllllloooooo
+      </div>
+
+      <div class="msg her">
+        I have something to tell you
+      </div>
+
+      <div class="msg me">
+        okay what happened
+      </div>
+
+      <div class="msg her">
+        🤭
+      </div>
+
+      <div class="msg me">
+        WHAT
+      </div>
+
+      <div class="msg her">
+        Never mind 😛
+      </div>
+
+      <div class="msg me">
+        I hate youuuuuu
+      </div>
+
+      <div class="msg her">
+        AWW
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TERMS
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      LEGAL DOCUMENT / FRIENDSHIP DEPT.
+    </div>
+
+    <h2>
+      🧾 BESTIE TERMS<br>
+      & CONDITIONS
+    </h2>
+
+    <p>
+      read carefully
+    </p>
+
+  </div>
+
+  <div class="terms">
+
+    <div class="term">
+      ☑ Send random updates nobody asked for
+    </div>
+
+    <div class="term">
+      ☑ Laugh at stupid jokes
+    </div>
+
+    <div class="term">
+      ☑ Tolerate Tarun's nonsense
+    </div>
+
+    <div class="term">
+      ☑ Accept food when offered
+    </div>
+
+    <div class="term">
+      ☑ Never disappear without explanation
+    </div>
+
+    <div class="term">
+      ☑ Remain iconic indefinitely
+    </div>
+
+    <button class="accept" onclick="acceptTerms()">
+      I ACCEPT THIS NON-REFUNDABLE CONTRACT
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     AWARDS
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      AWARDS CEREMONY / 2026
+    </div>
+
+    <h2>
+      🏆 THE TINGARI AWARDS
+    </h2>
+
+    <p>
+      presented by absolutely nobody
+    </p>
+
+  </div>
+
+  <div class="awards">
+
+    <div class="award">
+      <div class="award-icon">😂</div>
+      <div class="award-title">BEST LAUGH</div>
+    </div>
+
+    <div class="award">
+      <div class="award-icon">👑</div>
+      <div class="award-title">MAIN CHARACTER</div>
+    </div>
+
+    <div class="award">
+      <div class="award-icon">😛</div>
+      <div class="award-title">MOST CHAOTIC</div>
+    </div>
+
+    <div class="award">
+      <div class="award-icon">💗</div>
+      <div class="award-title">BEST BESTIE</div>
+    </div>
+
+    <div class="award">
+      <div class="award-icon">🎤</div>
+      <div class="award-title">BEST RANDOM STORY</div>
+    </div>
+
+    <div class="award">
+      <div class="award-icon">💿</div>
+      <div class="award-title">LIFETIME ACHIEVEMENT</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     MUSEUM
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      ARCHIVE / PERSONAL CAMERA
+    </div>
+
+    <h2>
+      🖼️ MUSEUM OF US
+    </h2>
+
+    <p>
+      you from my cam 📸
+    </p>
+
+  </div>
+
+
+  <div class="museum">
+
+    <div class="photo">
+      <div class="photo-img">
+        <img src="images/gallery1.JPG" alt="Memory">
+      </div>
+      <div class="photo-caption">
+        Core Memory
+      </div>
+    </div>
+
+    <div class="photo">
+      <div class="photo-img">
+        <img src="images/gallery2.JPG" alt="Memory">
+      </div>
+      <div class="photo-caption">
+        Certified Chaos
+      </div>
+    </div>
+
+    <div class="photo">
+      <div class="photo-img">
+        <img src="images/gallery3.JPG" alt="Memory">
+      </div>
+      <div class="photo-caption">
+        The Gang
+      </div>
+    </div>
+
+    <div class="photo">
+      <div class="photo-img">
+        <img src="images/gallery4.JPG" alt="Memory">
+      </div>
+      <div class="photo-caption">
+        My fav
+      </div>
+    </div>
+
+    <div class="photo">
+      <div class="photo-img">
+        <img src="images/gallery5.JPG" alt="Memory">
+      </div>
+      <div class="photo-caption">
+        Us
+      </div>
+    </div>
+
+    <div class="photo">
+      <div class="photo-img">
+        <img src="images/gallery6.JPG" alt="Memory">
+      </div>
+      <div class="photo-caption">
+        Certified iconic
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     BUCKET LIST
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      FUTURE PLANS DATABASE
+    </div>
+
+    <h2>
+      📝 OUR BUCKET LIST
+    </h2>
+
+    <p>
+      pending adventures
+    </p>
+
+  </div>
+
+  <div class="bucket">
+
+    <div class="bucket-item" onclick="toggleBucket(this)">
+      <div class="checkbox">✓</div>
+      Late night food runs 🍕
+    </div>
+
+    <div class="bucket-item" onclick="toggleBucket(this)">
+      <div class="checkbox">✓</div>
+      Road trip adventure 🚗
+    </div>
+
+    <div class="bucket-item" onclick="toggleBucket(this)">
+      <div class="checkbox">✓</div>
+      Concert screaming our lungs out 🎤
+    </div>
+
+    <div class="bucket-item" onclick="toggleBucket(this)">
+      <div class="checkbox">✓</div>
+      Random 2 AM adventure 🌙
+    </div>
+
+    <div class="bucket-item" onclick="toggleBucket(this)">
+      <div class="checkbox">✓</div>
+      Birthday treat 🍰
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SERIOUS LETTER
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      PRIVATE MESSAGE / NO JOKES
+    </div>
+
+    <h2>
+      OKAY, JOKES ASIDE...
+    </h2>
+
+    <p>
+      one actually serious thing
+    </p>
+
+  </div>
+
+
+  <div class="letter">
+
+    <h3>
+      Dear Tingari,
+    </h3>
+
+    <p>
+
+      Okay, enough of the nonsense for a second.
+
+      <br><br>
+
+      I genuinely don't think I say this enough, but I love you. Like, a lot. 🤭
+
+      <br><br>
+
+      I'm honestly so grateful that life somehow decided to put you in mine. Out of all the people I could've met, somehow I got you, and I genuinely wouldn't trade that for anything.
+
+      <br><br>
+
+      We've had the stupidest conversations, the most ridiculous moments, random arguments, countless laughs, and probably enough memories to fill about ten more websites.
+
+      <br><br>
+
+      And somewhere along the way, you became one of those people who isn't just <em>a</em> friend anymore — you're one of <strong>my people.</strong>
+
+      <br><br>
+
+      You're someone I can annoy endlessly, laugh with over absolutely nothing, tell the most random things to, and somehow still know that no matter how much we roast each other, there's always going to be love underneath it.
+
+      <br><br>
+
+      I love how chaotic you are. I love how effortlessly funny you can be. I love all the little things that make you <em>you</em>. And honestly, I love having you in my life more than I probably know how to put into words.
+
+      <br><br>
+
+      I hope this year gives you everything you've been wishing for — happiness, good people, unforgettable memories, success, good food, random adventures, and all the tiny moments that make life feel special.
+
+      <br><br>
+
+      And wherever life takes us, whatever changes, and however crazy things get, I hope you always remember that you'll have someone in your corner. Someone who will listen to your nonsense, celebrate your wins, tolerate your drama, bully you when necessary, and love you through all of it.
+
+      <br><br>
+
+      So yeah...
+
+      <br><br>
+
+      <strong>Happy Birthday, Tingari. 💗</strong>
+
+      <br><br>
+
+      I love you so, so much, Pandi.
+
+      <br><br>
+
+      Stay exactly as chaotic, funny, annoying, wonderful, and completely <em>you</em> as you are.
+
+      <br><br>
+
+      Wouldn't want you any other way.
+
+      <br><br>
+
+      — Your Favorite Idiot 😛
+
+    </p>
+
+  </div>
+
+</section>
+```
+
+
+
+<!-- =====================================================
+     MAKE A WISH
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="mini">
+      FINAL LEVEL
+    </div>
+
+    <h2>
+      🎂 MAKE A WISH
+    </h2>
+
+    <p>
+      this part is important
+    </p>
+
+  </div>
+
+
+  <div class="cake-box">
+
+    <div class="cake" id="cake">
+      🎂
+    </div>
+
+    <div class="wish" id="wish">
+      Make a wish...
+    </div>
+
+    <button class="blow" onclick="makeWish()">
+      ✦ BLOW THE CANDLES ✦
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+  <button
+    class="y2k-button"
+    style="width:100%;font-size:10px"
+    onclick="birthdayExplosion()"
+  >
+    ✦ PRESS FOR BIRTHDAY MAGIC ✦
+  </button>
+
+  <div class="footer-main" style="margin-top:35px">
+    HAPPY BIRTHDAY
+  </div>
+
+  <div class="footer-script">
+    Tingari 💗
+  </div>
+
+  <div style="
+    font-family:monospace;
+    font-size:8px;
+    margin-top:15px;
+  ">
+    TINGARI.EXE © 2026<br>
+    BESTIE DEPARTMENT • ALL RIGHTS RESERVED
+  </div>
+
+</footer>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div class="modal" id="modal">
+
+  <div class="modal-window">
+
+    <div class="window-bar">
+
+      <span>
+        TINGARI.EXE
+      </span>
+
+      <div class="window-buttons">
+        <span>−</span>
+        <span>□</span>
+        <span onclick="closeModal()">×</span>
+      </div>
+
+    </div>
+
+    <div class="modal-body">
+
+      <h3 id="modalTitle">
+        💗
+      </h3>
+
+      <p id="modalText">
+        You are officially stuck with me.
+      </p>
+
+      <button class="modal-close" onclick="closeModal()">
+        OKAY 😛
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   GLITTER
+========================================================= */
+
+const glitter=document.getElementById("glitter");
+
+for(let i=0;i<35;i++){
+
+  const star=document.createElement("div");
+
+  star.className="star";
+
+  star.textContent=
+    ["✦","✧","★","♡","✩"][Math.floor(Math.random()*5)];
+
+  star.style.left=Math.random()*100+"%";
+  star.style.top=Math.random()*100+"%";
+
+  star.style.fontSize=
+    (7+Math.random()*14)+"px";
+
+  star.style.animationDelay=
+    Math.random()*3+"s";
+
+  glitter.appendChild(star);
+
+}
+
+
+/* =========================================================
+   ACCORDIONS
+========================================================= */
+
+function toggleBox(el){
+
+  el.classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   CLASSIFIED
+========================================================= */
+
+function unlockFile(){
+
+
+  document
+    .getElementById("classified")
+    .classList.add("unlocked");
+
+  showModal(
+    "ACCESS GRANTED 🔓",
+    "You have successfully accessed the highly classified Tingari files. Please pretend you were never here. 😛"
+  );
+
+}
+
+
+/* =========================================================
+   RANDOMIZER
+========================================================= */
+
+const personalities=[
+
+  "👑 MAIN CHARACTER",
+
+  "😛 CERTIFIED MENACE",
+
+  "🎀 PRINCESS ENERGY",
+
+  "😂 PROFESSIONAL CHAOS",
+
+  "🍕 FOOD GOBLIN",
+
+  "😭 PROFESSIONAL OVERTHINKER",
+
+  "✨ CERTIFIED ICON",
+
+  "🧠 UNPAID THERAPIST",
+
+  "🎤 RANDOM SINGER",
+
+  "💅 CEO OF BEING TINGARI"
+
+];
+
+function randomBestie(){
+
+  const slot=
+    document.getElementById("slot");
+
+  slot.textContent="LOADING...";
+
+  setTimeout(()=>{
+
+    slot.textContent=
+      personalities[
+        Math.floor(
+          Math.random()*personalities.length
+        )
+      ];
+
+  },650);
+
+}
+
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+function acceptTerms(){
+
+
+  showModal(
+    "CONTRACT ACCEPTED 💗",
+    "Congratulations. You are now legally required to remain my bestie forever. There is absolutely no cancellation policy. 😛"
+  );
+
+}
+
+
+/* =========================================================
+   BUCKET
+========================================================= */
+
+function toggleBucket(el){
+
+  el.classList.toggle("done");
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+const observer=
+  new IntersectionObserver(
+
+    entries=>{
+
+      entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+          document
+            .querySelectorAll(".stat-fill")
+            .forEach(fill=>{
+
+              fill.style.width=
+                fill.dataset.width;
+
+            });
+
+        }
+
+      });
+
+    },
+
+    {threshold:.3}
+
+  );
+
+
+document
+  .querySelectorAll(".stat")
+  .forEach(el=>observer.observe(el));
+
+
+/* =========================================================
+   🔊 AUDIO FILE PATHS — EDIT ONLY THIS BLOCK
+========================================================= */
+
+/*
+   FOLDER STRUCTURE:
+
+   TINGARI-BIRTHDAY/
+   ├── index.html
+   ├── images/
+   ├── music/
+   │   ├── song1.mp3
+   │   ├── song2.mp3
+   │   ├── song3.mp3
+   │   ├── song4.mp3
+   │   └── birthday.mp3
+   └── sounds/
+       ├── click.mp3
+       ├── unlock.mp3
+       ├── camera.mp3
+       ├── candle.mp3
+       └── celebration.mp3
+
+   If your filenames are different, CHANGE THEM BELOW.
+   Do not use C:\Users\... or file:/// paths.
+*/
+
+const AUDIO_FILES = {
+
+  // 🎵 OPTIONAL BACKGROUND / LOCAL MUSIC — files inside /music/
+  song1: "music/song1.mp3",       // CHANGE THIS IF USED
+  song2: "music/song2.mp3",       // CHANGE THIS IF USED
+  song3: "music/song3.mp3",       // CHANGE THIS IF USED
+  song4: "music/song4.mp3",       // CHANGE THIS IF USED
+  birthday: "music/birthday.mp3", // CHANGE THIS IF USED
+
+  // 🎉 ONLY SOUND EFFECT KEPT
+  celebration: "sounds/celebration.mp3" // CHANGE THIS
+};
+
+/* Set this to false if you don't want button/UI sounds. */
+const SOUND_EFFECTS_ENABLED = true;
+
+function playEffect(name){
+
+  // All interaction sound effects are disabled.
+  // The only sound effect intentionally kept is the final celebration.
+  if(!SOUND_EFFECTS_ENABLED || name !== "celebration") return;
+  if(!AUDIO_FILES.celebration) return;
+
+  const effect = new Audio(AUDIO_FILES.celebration);
+  effect.volume = 0.75;
+  effect.play().catch(()=>{});
+}
+
+/* =========================================================
+   MUSIC / SOUNDTRACK
+========================================================= */
+
+let currentAudio=null;
+
+function playSong(name){
+
+  const cd=document.getElementById("cd");
+  const file=AUDIO_FILES[name];
+
+  if(!file){
+    showModal("SONG PATH MISSING 🎧", "Check the AUDIO_FILES block near the bottom of index.html.");
+    return;
+  }
+
+  if(currentAudio){
+    currentAudio.pause();
+    currentAudio.currentTime=0;
+  }
+
+  currentAudio=new Audio(file);
+  currentAudio.volume=0.9;
+
+  currentAudio.play()
+    .then(()=>{
+      if(cd) cd.classList.add("spin");
+    })
+    .catch(()=>{
+      if(cd) cd.classList.remove("spin");
+      showModal(
+        "SONG NOT FOUND 🎧",
+        "Check the filename in AUDIO_FILES and make sure the MP3 is inside the /music/ folder."
+      );
+    });
+
+}
+
+
+/* =========================================================
+   BACKGROUND MUSIC
+========================================================= */
+
+let bgMusic=new Audio(AUDIO_FILES.birthday);
+bgMusic.loop=true;
+bgMusic.volume=0.55;
+
+let musicPlaying=false;
+
+function toggleMusic(){
+
+  const button=document.getElementById("musicBtn");
+
+  if(!musicPlaying){
+
+    bgMusic.play()
+      .then(()=>{
+        musicPlaying=true;
+        if(button) button.textContent="🔊";
+      })
+      .catch(()=>{
+        showModal(
+          "MUSIC FILE MISSING 🎵",
+          "Check AUDIO_FILES.birthday and make sure that MP3 exists inside /music/."
+        );
+      });
+
+  }else{
+
+    bgMusic.pause();
+    musicPlaying=false;
+    if(button) button.textContent="♫";
+
+  }
+
+}
+
+
+/* =========================================================
+   WISH
+========================================================= */
+
+function makeWish(){
+
+  document.getElementById("cake").textContent="🍰";
+
+  document.getElementById("wish").textContent=
+    "WISH GRANTED ✨💗";
+
+  birthdayExplosion();
+
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function birthdayExplosion(){
+
+  playEffect("celebration");
+
+  const canvas=
+    document.getElementById("confetti");
+
+  const ctx=
+    canvas.getContext("2d");
+
+  canvas.width=
+    window.innerWidth;
+
+  canvas.height=
+    window.innerHeight;
+
+  const particles=[];
+
+  const colors=[
+    "#ff1493",
+    "#ff69b4",
+    "#9b5cff",
+    "#00e5ff",
+    "#d8ff3e",
+    "#ffffff"
+  ];
+
+  for(let i=0;i<200;i++){
+
+    particles.push({
+
+      x:canvas.width/2,
+
+      y:canvas.height/2,
+
+      vx:(Math.random()-.5)*18,
+
+      vy:(Math.random()-.5)*18,
+
+      size:Math.random()*7+2,
+
+      color:
+        colors[
+          Math.floor(Math.random()*colors.length)
+        ],
+
+      life:1
+
+    });
+
+  }
+
+
+  function render(){
+
+    ctx.clearRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    particles.forEach((p,index)=>{
+
+      p.x+=p.vx;
+      p.y+=p.vy;
+
+      p.vy+=.18;
+
+      p.life-=.012;
+
+      ctx.globalAlpha=
+        Math.max(0,p.life);
+
+      ctx.fillStyle=p.color;
+
+      ctx.fillRect(
+        p.x,
+        p.y,
+        p.size,
+        p.size
+      );
+
+      if(p.life<=0){
+
+        particles.splice(index,1);
+
+      }
+
+    });
+
+    if(particles.length){
+
+      requestAnimationFrame(render);
+
+    }else{
+
+      ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+    }
+
+  }
+
+  render();
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+function showModal(title,text){
+
+  document
+    .getElementById("modalTitle")
+    .textContent=title;
+
+  document
+    .getElementById("modalText")
+    .textContent=text;
+
+  document
+    .getElementById("modal")
+    .classList.add("show");
+
+}
+
+function closeModal(){
+
+  document
+    .getElementById("modal")
+    .classList.remove("show");
+
+}
+
+
+document
+  .getElementById("modal")
+  .addEventListener(
+    "click",
+    function(e){
+
+      if(e.target===this){
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   KONAMI-STYLE SECRET
+========================================================= */
+
+let secretKeys="";
+
+document.addEventListener("keydown",e=>{
+
+  secretKeys+=e.key.toLowerCase();
+
+  if(secretKeys.includes("tingari")){
+
+    birthdayExplosion();
+
+    showModal(
+      "SECRET MODE 💿",
+      "You found the hidden Tingari mode. You really weren't supposed to find this. 😛"
+    );
+
+    secretKeys="";
+
+  }
+
+  if(secretKeys.length>30){
+
+    secretKeys=secretKeys.slice(-10);
+
+  }
+
+});
+
+/* =========================================================
+   LANDING / GIFT REVEAL
+========================================================= */
+
+function createLandingGlitter(){
+  const holder=document.getElementById("landingGlitter");
+  if(!holder) return;
+  const symbols=["✦","✧","★","♡","✩","·"];
+  for(let i=0;i<28;i++){
+    const star=document.createElement("span");
+    star.className="landing-star";
+    star.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    star.style.left=(Math.random()*100)+"%";
+    star.style.top=(Math.random()*100)+"%";
+    star.style.fontSize=(8+Math.random()*14)+"px";
+    star.style.animationDelay=(Math.random()*2.5)+"s";
+    holder.appendChild(star);
+  }
+}
+
+function openBirthdayGift(){
+  const screen=document.getElementById("landingScreen");
+  const gift=document.getElementById("giftWrap");
+  if(!screen || !gift || screen.classList.contains("revealing")) return;
+
+  gift.classList.add("opening");
+
+  setTimeout(()=>{
+    gift.classList.remove("opening");
+    gift.classList.add("opened");
+    screen.classList.add("revealing");
+    birthdayExplosion();
+
+    // Start the birthday soundtrack if the browser allows it after this user gesture.
+    if(typeof bgMusic!=="undefined"){
+      bgMusic.play().then(()=>{
+        musicPlaying=true;
+        const button=document.getElementById("musicBtn");
+        if(button) button.textContent="🔊";
+      }).catch(()=>{});
+    }
+
+    setTimeout(()=>{
+      screen.classList.add("hidden");
+      document.body.classList.remove("landing-locked");
+      window.scrollTo(0,0);
+    },850);
+  },650);
+}
+
+createLandingGlitter();
+
+document.getElementById("giftWrap")?.addEventListener("keydown",e=>{
+  if(e.key==="Enter" || e.key===" "){
+    e.preventDefault();
+    openBirthdayGift();
+  }
+});
+
+</script>
+
+</body>
+</html>
